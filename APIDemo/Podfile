@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+use_frameworks!
+
+target 'APIDemo' do
+  pod 'Alamofire', '~> 1.1'
+end
+
+target 'APIDemoTests' do
+
+end
