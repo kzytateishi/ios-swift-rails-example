@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // 今回はテーブル表示にしたいので UITableView を使う
     var tableView : UITableView?
+    
+    var users = UserDataManager.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // セルの総数を返す(表示するテーブルの行数)
     // UITableViewDataSource を使う場合は 必須
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // とりあえずは適当に返しておく
-        return 1
+        return self.users.size
     }
     
     // 表示するセルを生成して返す
@@ -50,7 +51,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // UITableViewCellはテーブルの一つ一つのセルを管理するクラス。
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as UITableViewCell
         
+        // Cellに値を設定する.
+        let user: User = self.users[indexPath.row] as User
+        cell.textLabel?.text = user.email
+        
         return cell
+    }
+    
+    // 行が選択された際の処理
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let user = self.users[indexPath.row] as User
+        // 行選択された際にログにメールアドレスを表示してみる
+        println(user.email);
     }
 
     override func didReceiveMemoryWarning() {
