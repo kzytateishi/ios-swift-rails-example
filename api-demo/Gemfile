@@ -37,3 +37,5 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'grape'
+gem 'grape-entity'
