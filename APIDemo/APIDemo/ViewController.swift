@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 // UITableViewを使用する際はUITableViewDataSourceプロトコルとUITableViewDelegateプロトコルを実装する必要がある
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -39,6 +40,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.addSubview(self.tableView!)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.request()
+    }
+    
     // セルの総数を返す(表示するテーブルの行数)
     // UITableViewDataSource を使う場合は 必須
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,11 +63,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    // 行が選択された際の処理
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let user = self.users[indexPath.row] as User
-        // 行選択された際にログにメールアドレスを表示してみる
-        println(user.email);
+    // Web API をコールする
+    func request() {
+        Alamofire.request(Router.GetUsers()).responseJSON { (request, response, json, error) -> Void in
+            if let json = json as? Array<Dictionary<String,AnyObject>> {
+                for j in json {
+                    var user: User = User(
+                        name: j["name"] as NSString,
+                        email: j["email"] as NSString
+                    )
+                    self.users.set(user)
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView!.reloadData()
+                })
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

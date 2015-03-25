@@ -15,6 +15,7 @@
 		8593AE031AC2E3ED00305B8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8593AE011AC2E3ED00305B8B /* LaunchScreen.xib */; };
 		8593AE0F1AC2E3ED00305B8B /* APIDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8593AE0E1AC2E3ED00305B8B /* APIDemoTests.swift */; };
 		8593AE1A1AC2E57A00305B8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8593AE191AC2E57A00305B8B /* User.swift */; };
+		8593AE1C1AC2E63E00305B8B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8593AE1B1AC2E63E00305B8B /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		8593AE0D1AC2E3ED00305B8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8593AE0E1AC2E3ED00305B8B /* APIDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDemoTests.swift; sourceTree = "<group>"; };
 		8593AE191AC2E57A00305B8B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8593AE1B1AC2E63E00305B8B /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				8593ADFF1AC2E3ED00305B8B /* Images.xcassets */,
 				8593AE011AC2E3ED00305B8B /* LaunchScreen.xib */,
 				8593ADF61AC2E3ED00305B8B /* Supporting Files */,
+				8593AE1B1AC2E63E00305B8B /* Router.swift */,
 			);
 			path = APIDemo;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8593AE1C1AC2E63E00305B8B /* Router.swift in Sources */,
 				8593ADFB1AC2E3ED00305B8B /* ViewController.swift in Sources */,
 				8593ADF91AC2E3ED00305B8B /* AppDelegate.swift in Sources */,
 				8593AE1A1AC2E57A00305B8B /* User.swift in Sources */,
